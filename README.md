@@ -4,12 +4,14 @@ Show a Dashboard with Co2 level and temperature readings from a USB Co2 Meter
 This code is based on [https://github.com/vfilimonov/co2meter](https://github.com/vfilimonov/co2meter).
 The Code is migrated to FastAPI (instead of Flask).
 
+## Download
+You can download the windows executable here: [https://github.com/sorgmi/co2meter-fastapi/releases](https://github.com/sorgmi/co2meter-fastapi/releases)
 
-### Installation
 
+## Installation
 	pip install -r requirements.txt
 
-### Usage
+## Usage
 First test if the co2 meter is connected and we can get measurements. If your device sends encrypted data set ```bypass_decrypt=False```
 
     python test_device_connection.py  
@@ -32,6 +34,6 @@ If you downloaded the .exe file you can start it directly under Windows:
     .\server.exe 
 
 
-### Screenshot
+## Screenshot
 ![Screenshot - dash web-server](https://user-images.githubusercontent.com/1324881/36342020-0c2df1ac-13f8-11e8-978a-b1e3e92a3ea4.png)
 taken from [https://github.com/vfilimonov/co2meter](https://github.com/vfilimonov/co2meter)
