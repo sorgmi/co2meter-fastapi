@@ -29,6 +29,7 @@ If you downloaded the .exe file you can start it directly under Windows:
 
 ### Create Executable (with Pyinstaller)
     pyinstaller server.spec
+    .\server.exe 
 
 
 ### Screenshot
