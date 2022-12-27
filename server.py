@@ -4,7 +4,7 @@ import logging
 import threading
 import time
 import glob
-import os
+import os, sys
 
 from io import StringIO
 
@@ -16,8 +16,6 @@ import pandas as pd
 import numpy as np
 
 import co2meter as co2
-
-templates = Jinja2Templates(directory="templates")
 
 _DEFAULT_HOST = '127.0.0.1'
 _DEFAULT_PORT = '1201'
@@ -41,8 +39,20 @@ _tight_margins = False
 ###############################################################################
 mon = None
 app = FastAPI()
-###############################################################################
 
+
+def get_templates_dir(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
+templates = Jinja2Templates(directory=get_templates_dir("templates"))
 
 #############################################################################
 # Dashboard on plotly.js
@@ -274,7 +284,7 @@ def start_server():
     parser.add_option("-b", "--bypass-decrypt",
                       help="Bypass decrypt (needed for certain models of the device)",
                       action="store_true", dest="bypass_decrypt",
-                      default=False
+                      #default=True
                       )
     parser.add_option("-t", "--tight-margins",
                       help="Use tight margins when plotting",
