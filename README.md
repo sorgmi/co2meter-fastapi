@@ -23,4 +23,6 @@ If this works, start the web server with:
     python server.py  # add option -b if your device sends unencrypted data
 
 
+### Screenshot
 ![Screenshot - dash web-server](https://user-images.githubusercontent.com/1324881/36342020-0c2df1ac-13f8-11e8-978a-b1e3e92a3ea4.png)
+taken from [https://github.com/vfilimonov/co2meter](https://github.com/vfilimonov/co2meter)

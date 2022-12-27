@@ -5,7 +5,6 @@ import threading
 import time
 import glob
 import os
-import atexit
 
 from io import StringIO
 
@@ -37,7 +36,7 @@ _DEGREES_FAHRENHEIT = "&#8457;" # Unicode U+2109, Degree Fahrenheit
 
 _name = _DEFAULT_NAME
 _fahrenheit = False
-_tight_margins=False
+_tight_margins = False
 
 ###############################################################################
 mon = None
@@ -238,7 +237,7 @@ def start_monitor(interval=_DEFAULT_INTERVAL, bypass_decrypt=False):
 
     global _monitoring
     _monitoring = True
-    t = threading.Thread(target=monitoring_CO2, args=(interval, bypass_decrypt, ))
+    t = threading.Thread(target=monitoring_CO2, args=(interval, bypass_decrypt, ), daemon=True)
     t.start()
     return t
 
@@ -275,6 +274,7 @@ def start_server():
     parser.add_option("-b", "--bypass-decrypt",
                       help="Bypass decrypt (needed for certain models of the device)",
                       action="store_true", dest="bypass_decrypt",
+                      default=False
                       )
     parser.add_option("-t", "--tight-margins",
                       help="Use tight margins when plotting",
