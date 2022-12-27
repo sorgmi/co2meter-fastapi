@@ -5,9 +5,7 @@ import threading
 import time
 import glob
 import os
-import socket
-import signal
-import json
+import atexit
 
 from io import StringIO
 
@@ -277,7 +275,6 @@ def start_server():
     parser.add_option("-b", "--bypass-decrypt",
                       help="Bypass decrypt (needed for certain models of the device)",
                       action="store_true", dest="bypass_decrypt",
-                      default=True  # TODO change to False
                       )
     parser.add_option("-t", "--tight-margins",
                       help="Use tight margins when plotting",
