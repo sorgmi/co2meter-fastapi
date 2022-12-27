@@ -1,0 +1,6 @@
+co2meter/__pycache__/
+*.pyc
+*.csv
+accessory.state
+build/*
+dist/*

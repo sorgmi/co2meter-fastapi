@@ -1,0 +1,7 @@
+hidapi
+co2meter
+pandas
+numpy
+fastapi
+uvicorn
+jinja2
